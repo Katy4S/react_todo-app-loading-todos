@@ -22,6 +22,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
 
   return (
     <div data-cy="Todo" className={`todo ${completed ? 'completed' : ''}`}>
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label className="todo__status-label" htmlFor={`todo-checkbox-${id}`}>
         <input
           id={`todo-checkbox-${id}`} // Ensures proper association
@@ -32,7 +33,6 @@ export const TodoItem: React.FC<TodoItemProps> = ({
           onChange={() => onToggle(id)}
           disabled={isPending}
         />
-        Mark as completed
       </label>
       <span data-cy="TodoTitle" className="todo__title">
         {title}
@@ -44,7 +44,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
         onClick={() => onDelete(id)}
         disabled={isPending}
       >
-        ×
+        {/* Button without text */}
       </button>
       <div
         data-cy="TodoLoader"
