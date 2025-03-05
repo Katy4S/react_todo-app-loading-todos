@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Todo } from '../types/Todo';
 
 type ExtendedTodo = Todo & {
@@ -21,7 +22,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
   const isPending = id < 0 || todo.pendingDelete || todo.pendingToggle;
 
   return (
-    <div data-cy="Todo" className={`todo ${completed ? 'completed' : ''}`}>
+    <div data-cy="Todo" className={classNames('todo', { completed })}>
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label className="todo__status-label" htmlFor={`todo-checkbox-${id}`}>
         <input
@@ -48,7 +49,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
       </button>
       <div
         data-cy="TodoLoader"
-        className={`modal overlay ${isPending ? 'is-active' : ''}`}
+        className={classNames('modal overlay', { 'is-active': isPending })}
       >
         <div className="modal-background has-background-white-ter" />
         <div className="loader" />

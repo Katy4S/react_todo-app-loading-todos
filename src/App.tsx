@@ -45,7 +45,7 @@ export const App: React.FC = () => {
       return () => clearTimeout(timer);
     }
 
-    return undefined; // Ensure a cleanup function is always returned
+    return undefined;
   }, [error]);
 
   if (!USER_ID) {
